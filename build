@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#sudo docker image prune
+
+sudo docker stop icinga-test
+sudo docker rm icinga-test
+
+sudo docker rmi michaelscz/icinga-test
+
+sudo docker build -t michaelscz/icinga-test:latest  --no-cache=true .
+
+sudo docker run -it --name icinga-test -p 8090:80 michaelscz/icinga-test
+
